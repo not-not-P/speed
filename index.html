@@ -68,19 +68,13 @@
         var lastLoc;
         while (true) {
             const currentLoc = await watchPos(options);
-            console.log(currentLoc)
             if (lastLoc) {
                 var d = haversine(
                     lastLoc.coords.latitude, lastLoc.coords.longitude,
                     currentLoc.coords.latitude, currentLoc.coords.longitude
                 );
-                if (d < 1.5) {
-                    d = 0;
-                    console.log("delta lesser than 1.5m");
-                }
                 const dt = currentLoc.timestamp - lastLoc.timestamp;
                 const kmPerHour = 3600 * d/dt;
-                console.log(kmPerHour, 'km/h');
                 el.innerHTML = Math.round(kmPerHour) + ' km/h';
                 highlight_change(el, 150);
                 await sleep(1000);
