@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/main.css" />
     <title>
         Speed-o-meter
     </title>
@@ -28,12 +28,6 @@
     </div> <!-- container -->
 
     <script>
-
-    function highlight_change(el, msecs) {
-        const initial_val = el.style.color;
-        el.style.color = 'red';
-        setTimeout(() => { el.style.color = initial_val; }, msecs);
-    }
 
     function haversine(lat1, lon1, lat2, lon2) {
         const R = 6371e3; // m
@@ -76,7 +70,6 @@
                 const dt = currentLoc.timestamp - lastLoc.timestamp;
                 const kmPerHour = 3600 * d/dt;
                 el.innerHTML = Math.round(kmPerHour) + ' km/h';
-                highlight_change(el, 150);
                 await sleep(1000);
             }
             lastLoc = currentLoc;

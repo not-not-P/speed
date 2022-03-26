@@ -1,0 +1,8 @@
+body {
+    padding: 1rem;
+    max-width: 50ch;
+    font-family: sans-serif;
+}
+h1 {
+    font-size: inherit;
+}
