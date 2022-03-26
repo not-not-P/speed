@@ -4,8 +4,17 @@ body {
     max-width: 50ch;
     font-family: sans-serif;
     text-align: center;
+    color: #27241D;
+    background-color: #FAF9F7;
 }
 
 h1 {
     font-size: inherit;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #27241D;
+        color: #FAF9F7;
+    }
 }
