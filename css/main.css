@@ -12,6 +12,19 @@ h1 {
     font-size: inherit;
 }
 
+p {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+span#speed {
+    font-size: 3rem;
+}
+
+footer {
+    font-size: .8rem;
+}
+
 @media (prefers-color-scheme: dark) {
     body {
         background-color: #27241D;
