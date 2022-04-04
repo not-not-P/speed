@@ -55,14 +55,21 @@
         };
         var lastLoc;
         while (true) {
-            const currentLoc = await watchPos(options);
+            var currentLoc;
+            try {
+                currentLoc = await watchPos(options);
+                console.log(currentLoc);
+            } catch (e) {
+                console.log('Error!', e.code, e.message);
+                continue;
+            }
             if (lastLoc) {
                 var d = haversine(
                     lastLoc.coords.latitude, lastLoc.coords.longitude,
                     currentLoc.coords.latitude, currentLoc.coords.longitude
                 );
                 const dt = currentLoc.timestamp - lastLoc.timestamp;
-                const kmPerHour = 3600 * d/dt;
+                const kmPerHour = dt > 0 ? 3600 * d/dt : 0;
                 el.innerHTML = Math.round(kmPerHour).toString();
                 await sleep(1000);
             }
